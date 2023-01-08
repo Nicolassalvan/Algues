@@ -48,8 +48,8 @@ class Population:
             # Ajout de l'algue dans la population
             self.x = np.append(self.x, x1)
             self.y = np.append(self.y, y1)
-            self.age = np.append(self.age, 0)
-            self.taille = np.append(self.taille, 0)
+            self.age = np.append(self.age, rd.randint(0, config.TEMPS_REPROD))
+            self.taille = np.append(self.taille, config.taille)
             self.aggregat = np.append(self.aggregat, False)
             
     def afficher_coord_algues(self):
@@ -122,5 +122,3 @@ class Box:
         """
         print("Dimensions: {} x {}".format(self.x_max, self.y_max))
  
-
-    

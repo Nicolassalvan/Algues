@@ -24,10 +24,10 @@ class Population:
         # Coordonnées de chaque algue
         self.x = np.array([])
         self.y = np.array([])
-        # Age de chaque algue
-        self.age = np.array([])
-        # Stade de croissance / Taille
-        self.taille = np.array([])
+        # Age de chaque algue pour calculer les divisions
+        self.age = np.random.randint(0, config.TEMPS_REPRODUCTION, nombre_algues)
+        # Stade de croissance / Taille affichée de la cellule
+        self.taille = np.ones(nombre_algues)
         # Etat: True si aggregee, False si non aggrégée
         self.aggregat = np.array([])
         
@@ -48,8 +48,6 @@ class Population:
             # Ajout de l'algue dans la population
             self.x = np.append(self.x, x1)
             self.y = np.append(self.y, y1)
-            self.age = np.append(self.age, 0)
-            self.taille = np.append(self.taille, 0)
             self.aggregat = np.append(self.aggregat, False)
             
     def afficher_coord_algues(self):
@@ -68,7 +66,7 @@ class Population:
         
         Paramètres
         ------
-        tab: tableau d'entiers, ou nombre entier positif
+        tab: tableau d'entiers, ou nombre entier
             Indices à supprimer. Doivent être plus petit que le nombre d'algues.
         """
         self.x = np.delete(self.x, tab, 0)

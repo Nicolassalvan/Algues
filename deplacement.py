@@ -1,4 +1,10 @@
-import class_algue as cla 
+"""
+Created on Wed Jan  4 19:08:29 2023
+
+@author: Team Algues
+"""
+
+import class_algue 
 import matplotlib.pyplot as plt
 import settings as config
 import random as rand
@@ -17,8 +23,8 @@ def check_deplacement(population, i, box, deplacement):
         Indice de la cellule
     box : class Box
         Environnement où se déplace les cellules
-    deplacement : tuple de 2 entiers
-        Déplacement relatif possible (x,y)
+    deplacement : array de 2 entiers
+        Déplacement relatif possible [x,y]
         
     Retours
     ------

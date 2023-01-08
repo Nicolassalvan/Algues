@@ -7,16 +7,15 @@ import random as rd
 import numpy as np
 import settings as config
 
-# === Population d'algues === #
+# ========= Population d'algues ========= #
         
 class Population:
     """
     Représente une population d'algues. Chaque algue est représenté par son indice i, et 
     les informations de chaque algue sont stocké dans des tableaux numpy. Ainsi, une algue
     est définie par sa position x, y, son age (temps entre les reproductions), sa taille 
-    (stade de reproduction), son statut (aggloméré ou non.). Ainsi, la population est définie 
-    aussi par son effectif (nombre_algues). 
-    AVIS?
+    (selon le stade de reproduction, servira pour l'affichage), son statut (aggloméré ou non.).
+    Aussi, la population est définie par son effectif (nombre_algues). 
     """
     def __init__(self, nombre_algues, Box):
         # Nombre d'algues de la population
@@ -27,7 +26,7 @@ class Population:
         # Age de chaque algue pour calculer les divisions
         self.age = np.random.randint(0, config.TEMPS_REPRODUCTION, nombre_algues)
         # Stade de croissance / Taille affichée de la cellule
-        self.taille = np.ones(nombre_algues)
+        self.taille = np.ones(nombre_algues) * config.TAILLE_1
         # Etat: True si aggregee, False si non aggrégée
         self.aggregat = np.array([])
         
@@ -76,10 +75,33 @@ class Population:
         self.taille = np.delete(self.taille, tab, 0)
         self.nombre_algues = np.size(self.x)
     
+    def creer_algue(self, x, y, age=0, taille=config.TAILLE_1, aggregat=False):
+        """
+        Ajoute une algue dans la population dont les propriétés sont precisées
+        dans les paramètres de la fonction.
+
+        Parameters
+        ----------
+        x : int
+            Coordonnée x de la nouvelle algue.
+        y : int
+            Coordonnée y de la nouvelle algue.
+        age : int, optionnel
+            Age de la nouvelle algue.La valeur par défaut est 0. 
+        taille : TYPE, optional
+            DESCRIPTION. La valeur par défaut est config.TAILLE_1.
+        aggregat : booléén, optional
+            DESCRIPTION. La valeur par défaut est False.
+        """
+        self.x = np.append(self.x, x)
+        self.y = np.append(self.y, y)   
+        self.age = np.append(self.age, age)
+        self.taille = np.append(self.taille, taille)
+        self.aggregat = np.append(self.aggregat, aggregat)
+        self.nombre_algues += 1
 
         
-        
-# === Zone de simulation des algues === #
+# ========= Zone de simulation des algues ========= #
 
 class Box:
     """
@@ -89,9 +111,9 @@ class Box:
     
     Parametres
     ------
-    x_max: float
+    x_max: int
         coordonée x maximale de la zone de simulation
-    y_max: float
+    y_max: int
         coordonée y maximale de la zone de simulation
         
     """

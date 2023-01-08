@@ -1,19 +1,22 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
 Created on Wed Jan  4 19:08:29 2023
 
 @author: Team Algues
 """
 
-import numpy as np
+# Interface graphique
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation, writers, PillowWriter
 
+import numpy as np
+
 import settings 
 import class_algue as algue
-import deplacement as move
 
+import deplacement as move
+import reproduction as reprod
+
+# ===== CREATION D'UN FICHIER .mp4 ===== #
 
 def video_simulation(population, rectangle):
     """
@@ -24,9 +27,9 @@ def video_simulation(population, rectangle):
     Paramètres
     ----------
     population : class Population
-        population d'algues.
+        Population d'algues.
     rectangle : Box
-        zone de simulation.
+        Zone de simulation.
 
     Retours
     -------
@@ -44,14 +47,19 @@ def video_simulation(population, rectangle):
     
     # initialisation de l'animation
     animation = FuncAnimation(
-        fig, func=animation_frame, frames=np.arange(0, 100, 1), fargs=(population, rectangle,scat,), interval=50)
+        fig, func=animation_frame, frames=np.arange(0, 1000, 1),
+        fargs=(population, rectangle,scat,), interval=50)
 
     # Initialisations du writer
     writer = writers['ffmpeg']
     writer = writer(fps=15, metadata={'artist': 'me'}, bitrate=1800)
 
     animation.save('Les_Belles_Algues.mp4', writer)
+
    
+
+# ===== CREATION D'UN GIF ===== #    
+
 def gif_simulation(population, rectangle):
     """
     Lance la simulation de la population dans la zone délimitée par un rectangle. 
@@ -67,7 +75,7 @@ def gif_simulation(population, rectangle):
 
     Retours
     -------
-    None.    
+    Aucun.    
     """
     # initialisation du plot
     plt.close('all')
@@ -81,12 +89,16 @@ def gif_simulation(population, rectangle):
     
     # initialisation de l'animation
     animation = FuncAnimation(
-        fig, func=animation_frame, frames=np.arange(0, 100, 1), fargs=(population, rectangle,scat,), interval=50)
+        fig, func=animation_frame, frames=np.arange(0, 1000, 1),
+        fargs=(population, rectangle,scat,), interval=50)
 
     # Initialisations du writer
     writer = PillowWriter(fps=15, metadata={'artist': 'me'}, bitrate=1800)
 
     animation.save('Les_Belles_Algues.gif', writer)
+
+
+# ===== FONCTION QUI MET A JOUR LA POPULATION ===== #
 
 def animation_frame(i, population, rect, scat):
     """
@@ -108,15 +120,15 @@ def animation_frame(i, population, rect, scat):
     """
     # On met à jour la population avec les cellules qui meurent 
     #update_death(population, rect, ... )
-    
-    # on met à jour les reproductions des cellules 
-    #update_reprod(population, rect, ...)
-    
+        
     # On met à jour les aggrégats??? 
     
+    # On met à jour l'âge et la reproduction des cellules
+    if population.nombre_algues < settings.NB_ALGUES_MAX:
+        reprod.update_age_et_reprod(population, rect)
+        
     # On met à jour les déplacements des cellules 
     move.deplacement_sans_stresse(population, rect)
-    # On met à jour l'âge des cellules
     
     # Update de l'animation avec un scatter
     data = np.c_[population.x, population.y]
@@ -126,5 +138,5 @@ def animation_frame(i, population, rect, scat):
 # === Test === #
 
 boite = algue.Box(1000, 1000)
-pop = algue.Population(1000, boite)
-gif_simulation(pop, boite) 
+pop = algue.Population(10, boite)
+video_simulation(pop, boite)

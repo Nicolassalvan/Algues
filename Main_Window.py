@@ -12,7 +12,7 @@ import sys
 from PyQt5 import QtWidgets
 from PyQt5.QtCore import QSize ,Qt
 from PyQt5.QtWidgets import QWidget, QMainWindow, QGridLayout, QLabel, QApplication
-
+from PyQt5.QtGui import QFont, QFontDatabase
 
     # Insertions des différents modules 
 
@@ -53,6 +53,8 @@ class MainWindow(QMainWindow) :
 
         self.centralWidget_f()
 
+        self.ChangeFont()
+
         self.connect()
         self.actu()
         self.show()
@@ -69,6 +71,15 @@ class MainWindow(QMainWindow) :
         self.Stress.seuil_spinbox.TriggerChanged()
 
     
+    def ChangeFont(self) :  
+        self.Intro.intro_label.setFont(QFont('Arial', 10))
+        self.Intro.typestress_label.setFont(QFont('Arial', 10))
+        self.Alg.dens_label.setFont(QFont('Arial', 10))
+        self.Alg.tdiv_label.setFont(QFont('Arial', 10))
+        self.Alg.vit_label.setFont(QFont('Arial', 10))
+        self.Alg.diam_label.setFont(QFont('Arial', 10))
+
+    
     def launch_simul_gif(self) : 
         # Fonction de lancement de la simulation
         print("Lancement de la simulation en gif dans cette fonction")
@@ -76,7 +87,7 @@ class MainWindow(QMainWindow) :
     def launch_simul_mp4(self) : 
         # Fonction de lancement de la simulation
         print("Lancement de la simulation en mp4 dans cette fonction")
-        
+
 
     def centralWidget_f(self) :             
         # definition du central Widget sur lequel poser les différents elements 

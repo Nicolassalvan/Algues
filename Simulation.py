@@ -22,6 +22,7 @@ class Simul_class(QGroupBox) :
         self.grpbutton = QButtonGroup()                #on regroupe tous les bouttons dans le meme groupe
         self.grpbutton.setExclusive(True)
         self.stress_oui_radiobutton = QRadioButton("Oui", self)
+        self.stress_oui_radiobutton.setChecked(True)
         self.stress_non_radiobutton = QRadioButton("Non", self)
         self.grpbutton.addButton(self.stress_oui_radiobutton)
         self.grpbutton.addButton(self.stress_non_radiobutton)

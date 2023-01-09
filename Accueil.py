@@ -20,13 +20,13 @@ class Intro_class(QGroupBox) :
         # self.setMaximumSize(d.grp_regtrans_maxw,d.grp_regtrans_maxh)
 
 
-        intro_label = Intro_label_class()
-        typestress_label = TypeStress_label_class()
-        ctes_groupbox = Ctes_groupbox_class()
+        self.intro_label = Intro_label_class()
+        self.typestress_label = TypeStress_label_class()
+        self.ctes_groupbox = Ctes_groupbox_class()
 
-        self.layout.addWidget(intro_label,0,0)
-        self.layout.addWidget(typestress_label,1,0)
-        self.layout.addWidget(ctes_groupbox,0,1,2,1)
+        self.layout.addWidget(self.intro_label,0,0)
+        self.layout.addWidget(self.typestress_label,1,0)
+        self.layout.addWidget(self.ctes_groupbox,0,1,2,1)
 
 
 

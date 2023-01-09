@@ -1,0 +1,22 @@
+Installer git : 
+    winget install --id Git.Git -e --source winget
+
+Installer PyQt5 :
+    pip install PyQt5
+
+
+
+Prendre en compte : 
+
+    parametres 
+
+            diametre algues
+            vitesse algues
+            densité de départ
+            temps div
+
+            diametre boite
+        vitesse simulation
+
+        type de stress  
+        declencheur de stress (temps, nb cellules...)

@@ -10,12 +10,13 @@ import sys
 
     # Insertions des différentes bibliothéques utiles au projet 
 from PyQt5 import QtWidgets
+from PyQt5.QtCore import QSize ,Qt
 from PyQt5.QtWidgets import QWidget, QMainWindow, QGridLayout, QLabel, QApplication
 
 
     # Insertions des différents modules 
 
-from Acceuil import *
+from Accueil import *
 from Plot import *
 from Choix_Algues import *
 from Choix_Stress import *
@@ -52,22 +53,30 @@ class MainWindow(QMainWindow) :
 
         self.centralWidget_f()
 
+        self.connect()
         self.actu()
         self.show()
 
 
     def connect(self) : 
         # Fonction de connections des différents éléments de la fenètre
-        self.LaunchSimul.simul_button.clicked.connect(self.launch_simul)
+        self.LaunchSimul.simul_button_gif.clicked.connect(self.launch_simul_gif)
+        self.LaunchSimul.simul_button_mp4.clicked.connect(self.launch_simul_mp4)
+
         
     def actu(self) : 
         # Fonction d'actualisation globale de la fenètre
-        self.Stress.niv_spinbox.TypeStressChanged()
         self.Stress.seuil_spinbox.TriggerChanged()
+
     
-    def launch_simul(self) : 
+    def launch_simul_gif(self) : 
         # Fonction de lancement de la simulation
-        print("Lancement de la simulation dans cette fonction")
+        print("Lancement de la simulation en gif dans cette fonction")
+    
+    def launch_simul_mp4(self) : 
+        # Fonction de lancement de la simulation
+        print("Lancement de la simulation en mp4 dans cette fonction")
+        
 
     def centralWidget_f(self) :             
         # definition du central Widget sur lequel poser les différents elements 

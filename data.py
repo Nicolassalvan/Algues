@@ -17,9 +17,9 @@ vit_alg = 10            # en m/s
 vit_alg_min = 0
 vit_alg_max = 100
 
-dens_alg = 12           # en 10 alg/mL
-dens_alg_min = 0
-dens_alg_max = 100
+nb_alg = 12           # en 10 alg/mL
+nb_alg_min = 0
+nb_alg_max = 100
 
 t_div_alg = 10          # en h
 t_div_alg_min = 5
@@ -31,22 +31,14 @@ t_div_alg_max = 15
 
 bool_stress = True
 
-type_stress = "Thermique"
 
-stress_th = 50          # en °C
-stress_th_min = 20
-stress_th_max = 100
-
-stress_lum = 20         # en Lumens
-stress_lum_min = 0
-stress_lum_max = 100
-
-stress_hydr = 10        #
-stress_hydr_min = 0
-stress_hydr_max = 20
+stress_niv = 50          # en %
+stress_min = 0
+stress_max = 100
 
 
-trigger = "Temps"
+
+trigger = "Durée"
 
 trigger_pop = 10        # en millier d'algues
 trigger_pop_min = 1
@@ -87,3 +79,4 @@ long_wind = 0
 # Messages 
 
 message_intro = "Bienvenue, \nDans cette interface, vous avez à déterminer les différents paramètres qui seront pris en compte pour la modéilisation\nBien à vous"
+message_type_stress = "Ici, le stress peut être thermqiue, hydrique ou encore lumineux. On associe le stress à une probabilité de survie de la cellule"

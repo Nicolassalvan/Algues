@@ -34,6 +34,7 @@ class ChoixSimul_class(QGroupBox) :
         layout.addWidget(self.tsim_spinbox,2,1)
         layout.addWidget(self.vitsim_label,3,0)
         layout.addWidget(self.vitsim_spinbox,3,1)
+        
 
 
 
@@ -89,7 +90,7 @@ class TSimul_label_class(QLabel) :
     def __init__(self) :
         super().__init__()
 
-        self.setText("Période modélistée :")
+        self.setText("Temps de modélisation :")
 
 
 

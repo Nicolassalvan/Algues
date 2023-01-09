@@ -89,22 +89,22 @@ class Dens_label_class(QLabel) :
     def __init__(self) :
         super().__init__()
 
-        self.setText("Densité de départ : ")
+        self.setText("Nombre de départ : ")
 
 
 class Dens_spinbox_class(QSpinBox) :
     def __init__(self) :
         super().__init__()
 
-        self.setSuffix(" /mL²")
-        self.setValue(d.dens_alg)
-        self.setMinimum(d.dens_alg_min)
-        self.setMaximum(d.dens_alg_max)
+        self.setSuffix(" *10")
+        self.setValue(d.nb_alg)
+        self.setMinimum(d.nb_alg_min)
+        self.setMaximum(d.nb_alg_max)
 
         self.valueChanged.connect(self.changed)
 
     def changed(self) : 
-        d.dens_alg = self.value()
+        d.nb_alg = self.value()*10
 
 
 

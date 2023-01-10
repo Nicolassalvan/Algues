@@ -1,5 +1,7 @@
-# Fichier contenant toutes les variables et constantes nécessaires dans différents fichiers 
+# Module contenant toutes les variables et constantes nécessaires dans différents fichiers 
 
+
+# Import du fichier settings
 import settings as config
 
 
@@ -7,23 +9,27 @@ import settings as config
 # et ainsi éviter des cas d'erreurs
 
 
+# Définition des variables 
 
 # Paramètres algues 
 
-diam_alg = 2            # en micro m
-diam_alg_min = 0.1
-diam_alg_max = 10
+    # Diameètre d'une algue
+diam_alg = 2            # en micro m    
 
+    # Densité des algues dans la boite
 dens_alg = 0
 
+    # Vitesse des algues
 vit_alg = 10            # en m/s
 vit_alg_min = 0
 vit_alg_max = 100
 
+    # Nombre d'algues initial
 nb_alg = 12           # en 10 alg
 nb_alg_min = 1
 nb_alg_max = 100
 
+    # Temps de division des algues 
 t_div_alg = 10          # en h
 t_div_alg_min = 5
 t_div_alg_max = 15
@@ -32,21 +38,25 @@ t_div_alg_max = 15
 
 # Paramètres stress
 
+    # Choix d'application d'un stress
 bool_stress = True      # booléen permettant de déterminer si oui on non le stress sera appliquer lors de la simulation
 
 
+    # Niveau de stress appliqué 
 stress_niv = 50          # en %
 stress_min = 0
 stress_max = 101
 
 
-
+    # Type de trigger déclencheur du stress
 trigger = "Population"
 
+    # Trigger en fonction du nombre d'algues 
 trigger_pop = 10        # en millier d'algues
 trigger_pop_min = 1
 trigger_pop_max = 100
 
+    # Trigger en fonction du temps écoulé 
 trigger_t = 10          # en h
 trigger_t_min = 1
 trigger_t_max = 100
@@ -55,28 +65,26 @@ trigger_t_max = 100
 
 # Paramètre boite de pétri et simulation
 
+    # Largeur de la boite
 larg_boite = 5      # en cm
 larg_boite_min = 1
 larg_boite_max = 10
 
+    # Longueur de la boite
 long_boite = 5      # en cm
 long_boite_min = 1
 long_boite_max = 10
 
+    # Vitesse de simulation
 vit_simul = 10      #
 vit_simul_min = 0
 vit_simul_max = 100
 
+    # Temps de simulation 
 t_simul = 2         # en jours
 t_simul_min = 0
 t_simul_max = 10
 
-
-
-# Paramètre interface graphique 
-
-larg_wind = 0
-long_wind = 0
 
 
 # Messages 
@@ -93,3 +101,6 @@ def transfert_val() :
 
 
     return 0
+
+
+# Fin du module

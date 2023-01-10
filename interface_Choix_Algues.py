@@ -6,7 +6,7 @@
 
 from PyQt5.QtWidgets import QGroupBox, QGridLayout, QLabel, QSpinBox
 
-# Import du dossier data 
+# Import du module data 
 
 import data as d
 
@@ -15,7 +15,7 @@ import data as d
 # Définition des classes
 
 class Alg_class(QGroupBox) :
-    # Classe GroupBox contenant les éléments permettant de choisir les paramètres des algues
+    # Classe QGroupBox contenant les éléments permettant de choisir les paramètres des algues
      
     def __init__(self) :
         super().__init__()

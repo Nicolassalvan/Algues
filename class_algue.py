@@ -29,7 +29,7 @@ class Population:
         # Stade de croissance / Taille affichée de la cellule
         self.taille = np.ones(nombre_algues) * config.TAILLE_1
         # Etat: True si aggregee, False si non aggrégée
-        self.aggregat = np.random.choice([True, False], 100, True, np.array([0.05, 0.95]))
+        self.aggregat = np.random.choice([True, False], nombre_algues, True, np.array([0.05, 0.95]))
         
         # Generation de chaque algue, en vérifiant qu'aucune ne soit à la même coordonnée
         for i in range(nombre_algues):

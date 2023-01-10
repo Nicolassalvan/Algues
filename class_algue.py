@@ -29,8 +29,7 @@ class Population:
         # Stade de croissance / Taille affichée de la cellule
         self.taille = np.ones(nombre_algues) * config.TAILLE_1
         # Etat: True si aggregee, False si non aggrégée
-        self.aggregat = np.random.choice([True, False], 100, True, np.array([0.05, 0.95]))
-        
+        self.aggregat = np.random.choice([True, False], nombre_algues, True, np.array([0.05, 0.95]))        
         # Generation de chaque algue, en vérifiant qu'aucune ne soit à la même coordonnée
         for i in range(nombre_algues):
             x1 = rd.randint(0, Box.x_max)
@@ -45,7 +44,6 @@ class Population:
                         y1 = rd.randint(0, Box.y_max)
                         not_in_list = False
                         j = i
-            # Ajout de l'algue dans la population
             self.x = np.append(self.x, x1)
             self.y = np.append(self.y, y1)
 
@@ -142,6 +140,4 @@ class Box:
         Affiche les dimensions de la zone de simulation. 
         """
         print("Dimensions: {} x {}".format(self.x_max, self.y_max))
- 
-
-    
+        

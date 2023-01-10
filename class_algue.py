@@ -15,8 +15,9 @@ class Population:
     les informations de chaque algue sont stocké dans des tableaux numpy. Ainsi, une algue
     est définie par sa position x, y, son age (temps entre les reproductions), sa taille 
     (selon le stade de reproduction, servira pour l'affichage), son statut (aggloméré ou non.).
-    Aussi, la population est définie par son effectif (nombre_algues). 
+    Aussi, la population est définie par son effectif (nombre_algues).
     """
+    
     def __init__(self, nombre_algues, Box):
         # Nombre d'algues de la population
         self.nombre_algues = nombre_algues
@@ -28,8 +29,7 @@ class Population:
         # Stade de croissance / Taille affichée de la cellule
         self.taille = np.ones(nombre_algues) * config.TAILLE_1
         # Etat: True si aggregee, False si non aggrégée
-        self.aggregat = np.array([])
-        
+        self.aggregat = np.random.choice([True, False], nombre_algues, True, np.array([0.05, 0.95]))        
         # Generation de chaque algue, en vérifiant qu'aucune ne soit à la même coordonnée
         for i in range(nombre_algues):
             x1 = rd.randint(0, Box.x_max)
@@ -44,10 +44,9 @@ class Population:
                         y1 = rd.randint(0, Box.y_max)
                         not_in_list = False
                         j = i
-            # Ajout de l'algue dans la population
             self.x = np.append(self.x, x1)
             self.y = np.append(self.y, y1)
-            self.aggregat = np.append(self.aggregat, False)
+
             
     def afficher_coord_algues(self):
         """
@@ -141,6 +140,4 @@ class Box:
         Affiche les dimensions de la zone de simulation. 
         """
         print("Dimensions: {} x {}".format(self.x_max, self.y_max))
- 
-
-    
+        

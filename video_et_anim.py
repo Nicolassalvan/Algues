@@ -18,6 +18,7 @@ import reproduction as reprod
 
 # ===== CREATION D'UN FICHIER .mp4 ===== #
 
+
 def video_simulation(population, rectangle):
     """
     Lance la simulation de la population dans la zone délimitée par un rectangle. 

@@ -113,16 +113,14 @@ def reproduire(population, box, i):
         # Pour chaque case autour de la cellule à faire reproduire, 
         # On vérifie si il n'y a pas de cellule et si il n'y en a pas,
         # On ajoute une cellule à cette coordonnée. 
+        nb_nouvelles_algues = 0
         for deplacement in Tab:
-            if deplacement[0] != 0 or deplacement[1] != 0: 
+            if (deplacement[0] != 0 or deplacement[1] != 0) and nb_nouvelles_algues <8: 
                 if move.check_deplacement(population, i, box, deplacement):
                     population.creer_algue(x_i+deplacement[0], y_i+deplacement[1])
+                    nb_nouvelles_algues += 1
         
-        
-        
-
-
-    
+ 
 
 
 def is_room_for_reprod(population, box, i):

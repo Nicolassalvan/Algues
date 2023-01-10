@@ -1,22 +1,30 @@
 # Module permettant le choix des paramètres liés au stress  
 
+
+
+# Import des bibliothèques de PyQt5
+
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QGroupBox, QGridLayout, QLabel, QComboBox, QSpinBox
+
+# Import du module data
 
 import data as d
 
 
 
+# Définition des classes
+
 class Stress_class(QGroupBox) : 
-    # Classe QGroupBox contenant les différents éléments du choix concercnant le stress
+    # Classe QGroupBox contenant les éléments permettant de choisir les paramètres du stress
 
     def __init__(self) : 
         super().__init__()
 
-            # Nom du groupbox        
+            # Choix du nom        
         self.setTitle("Parametres du stress")
 
-            # Définition du layout et ajout
+            # Définition et ajout du layout
         layout = QGridLayout()
         self.setLayout(layout)
 
@@ -36,13 +44,15 @@ class Stress_class(QGroupBox) :
         layout.addWidget(self.seuil_label,3,0)
         layout.addWidget(self.seuil_spinbox,3,1)
 
-            # Création du lien entre le choix du type de trigger et le Spinbox du niveau de trigger associé
+            # Connexion entre le choix du type de trigger et la fonction adequat du choix du seuil du trigger 
         self.trigger_combobox.currentTextChanged.connect(self.seuil_spinbox.TriggerChanged)
+
+# Fin de la classe 
 
 
 
 class NivStress_label_class(QLabel) : 
-    # Classe QLabel 
+    # Classe QLabel introduisant le choix du niveau de stress
     def __init__(self) :
         super().__init__()
 
@@ -52,12 +62,10 @@ class NivStress_label_class(QLabel) :
 
 
 class NivStress_spin_class(QSpinBox) :
-    # Classe  permettant de choisir le niveau du stress, en %
+    # Classe QSpinbox permettant le choix du niveau du stress
+
     def __init__(self) :
         super().__init__()
-
-            # Connexion à la fonction changed, appelée lorsque la valeur est changée
-        self.valueChanged.connect(self.changed)
 
             # Choix de la valeur initiale, du suffix, du min et du max
         self.setValue(d.stress_niv)
@@ -65,10 +73,14 @@ class NivStress_spin_class(QSpinBox) :
         self.setMinimum(d.stress_min)
         self.setMaximum(d.stress_max)
 
+            # Connexion du changement de la valeur à la fonction changed
+        self.valueChanged.connect(self.changed)
+
     def changed(self) : 
-        # Fonction d'actualisation de la valeur du niveau de stres dans le fichier data
+        # Fonction permettant d'actualiser la valeur du fichier data avec la valeur courante
         d.stress_niv = self.value()
-    
+
+# Fin de la classe
 
 
 
@@ -84,7 +96,7 @@ class Trigger_label_class(QLabel) :
 
 
 class Trigger_combobox_class(QComboBox) : 
-    # Classe permettant de choisir le type de trigger
+    # Classe Combobox permettant de choisir le type de trigger
 
     def __init__(self) :
         super().__init__()
@@ -93,17 +105,20 @@ class Trigger_combobox_class(QComboBox) :
         self.addItem("Durée")
         self.addItem("Population")
 
-            # Connexions entre le changement du trigger et la fonction changed
+            # Connexion du changement de la valeur à la fonction changed
         self.currentTextChanged.connect(self.changed)
 
     def changed(self) : 
         # Fonction d'actualisation de la valeur de trigger dans le fichier data
         d.trigger = self.currentText()
 
+# Fin de la classe 
+
 
 
 class Seuil_label_class(QLabel) : 
     # Classe Qlabel permettant l'introduction du choix du niveau du trigger
+
     def __init__(self) :
         super().__init__()
 
@@ -123,14 +138,16 @@ class Seuil_spinbox_class(QSpinBox) :
             # Connexion du changement de la valeur et de la fonction changed 
         self.valueChanged.connect(self.changed)
 
-    def changed(self) : 
-        if d.trigger == "Durée" : 
+    def changed(self) :
+        # Fonction permettant d'actualiser la valeur du fichier data avec la valeur courante 
+        if d.trigger == "Durée" :           # On veille à modifier la bonne valeur dans data ici
             d.trigger_t = self.value()
         
         else :
             d.trigger_pop = self.value()
         
     def TriggerChanged(self) : 
+        # Fonction permettant de choisir les bons min, max, suffix et valeurs en fonction du type de trigger choisi
         if d.trigger == "Durée" : 
             self.setSuffix(" h")
             self.setValue(d.trigger_t)
@@ -142,3 +159,9 @@ class Seuil_spinbox_class(QSpinBox) :
             self.setValue(d.trigger_pop)
             self.setMinimum(d.trigger_pop_min)
             self.setMaximum(d.trigger_pop_max)
+
+# Fin de la classe
+
+
+
+# Fin du module

@@ -103,7 +103,6 @@ class MainWindow(QMainWindow) :
         self.Alg.nb_label.setFont(font)
         self.Alg.tdiv_label.setFont(font)
         self.Alg.vit_label.setFont(font)
-        # self.Alg.diam_label.setFont(font)
 
         self.Stress.niv_label.setFont(font)
         self.Stress.seuil_label.setFont(font)

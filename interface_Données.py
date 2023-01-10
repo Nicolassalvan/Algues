@@ -1,24 +1,30 @@
 # Module qui permet l'affichage du message d'introduction
 
 
+
+# Import des bibliothèques de PyQt5 
+
 from PyQt5.QtWidgets import QGroupBox, QGridLayout, QLabel
-# from PyQt5.QtWidgets import *
+
+# Import du module data
 
 import data as d
 
 
 
+# Définition des classes
+
 class Intro_class(QGroupBox) : 
-    # Classe groupBox qui contient les différents éléments d'introduction et de calcul des constantes
+    # Classe QGroupBox contenant les différents éléments d'introduction et de calcul des constantes
 
     def __init__(self) : 
         super().__init__()
 
-            # Définition du layout du groupbox
+            # Définition et ajout du layout
         self.layout = QGridLayout()
         self.setLayout(self.layout)
 
-            # Nom du GroupBox
+            # Choix du nom
         self.setTitle("Bienvenue")
 
             # Création des différents éléments
@@ -31,40 +37,46 @@ class Intro_class(QGroupBox) :
         self.layout.addWidget(self.typestress_label,1,0)
         self.layout.addWidget(self.ctes_groupbox,0,1,2,1)
 
+# Fin de la classe 
+
 
 
 class Intro_label_class(QLabel) : 
-    # Classe du message d'introduction à la fenêtre
+    # Classe QLabel permettant d'afficher le message d'introduction de l'interface graphique
 
     def __init__(self) : 
         super().__init__()
 
-            # Choix du text du QLabel
+            # Choix du texte
         self.setText(d.message_intro) 
+
+# Fin de la classe 
 
 
 
 class TypeStress_label_class(QLabel) : 
-    # Classe du message d'explication du choix du stress
+    # Classe QLabel permettant d'afficher le message explicatif sur le choix du stress
 
     def __init__(self) :
         super().__init__()
         
-            # Choix du text du QLabel
+            # Choix du texte
         self.setText(d.message_type_stress)
+
+# Fin de la classe 
 
 
 
 class Ctes_groupbox_class(QGroupBox) :
-    # Classe permettant de calculer et d'afficher les différentes constantes de la simulation
+    # Classe QGroupBox permettant de calculer et d'afficher les différentes constantes
 
     def __init__(self) :
         super().__init__()
 
-            # Nom du Groupbox
+            # Choix du nom
         self.setTitle("Données de la modélisation : ")
 
-            # Définition du layout et ajout
+            # Définition et ajout du layout
         self.layout = QGridLayout()
         self.setLayout(self.layout)
 
@@ -78,37 +90,56 @@ class Ctes_groupbox_class(QGroupBox) :
         self.layout.addWidget(self.dens_label,1,0)
         self.layout.addWidget(self.diamalg_label,2,0)
 
+# Fin de la classe 
 
 class SurfBoite_label_class(QLabel) : 
-    # Classe permettant l'affichage de la surface de la boite
+    # Classe QLabel permettant l'affichage de la surface de la boite
 
     def __init__(self) :
         super().__init__()
 
+            # Choix du texte
         self.setText("Surface de la boite : " + str(d.larg_boite*d.long_boite) + " cm²")
 
     def actu(self) : 
+        # Fonction permettant d'actualiser l'affichage avec les bonnes valeurs
+            # Choix du texte
         self.setText("Surface de la boite : " + str(d.larg_boite*d.long_boite) + " cm²")
+
+# Fin de la classe 
 
 
 
 class DensAlg_label_class(QLabel) : 
-    # Classe permettant d'afficher la densité d'algues initiale
+    # Classe QLabel permettant d'afficher la densité d'algues initiale
 
     def __init__(self) :
         super().__init__()
 
+            # Choix du texte 
         self.setText("Densité d'algues : ")
 
     def actu(self) : 
+        # Fonction permettant d'actualiser l'affichage avec les bonnes valeurs
         d.dens_alg = d.nb_alg / (d.larg_boite*d.long_boite)
+            #Choix du texte
         self.setText("Densité d'algues : "+ str(d.dens_alg)+" /cm²")
+
+# Fin de la classe
 
 
 
 class DiamAlg_label_class(QLabel) : 
-    # Classe permettant d'afficher le diamètre d'une algue
+    # Classe QLabel permettant d'afficher le diamètre d'une algue
+
     def __init__(self) :
         super().__init__()
     
+            # Choix du texte
         self.setText("Diamètre d'une algue : " + str(d.diam_alg) + " µm")
+
+# Fin de la classe
+
+
+
+# Fin du module

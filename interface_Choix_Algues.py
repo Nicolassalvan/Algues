@@ -17,21 +17,21 @@ class Alg_class(QGroupBox) :
         self.setTitle("Parametres de l'algue")
 
 
-        self.diam_label = Diam_label_class()
-        self.diam_spinbox = Diam_spinbox_class()
+        # self.diam_label = Diam_label_class()
+        # self.diam_spinbox = Diam_spinbox_class()
         self.vit_label = Vit_label_class()
         self.vit_spinbox = Vit_spinbox_class()
-        self.dens_label = Dens_label_class()
-        self.dens_spinbox = Dens_spinbox_class()
+        self.nb_label = Nb_label_class()
+        self.nb_spinbox = Nb_spinbox_class()
         self.tdiv_label = Tdiv_label_class()
         self.tdiv_spinbox = Tdiv_spinbox_class()
 
-        layout.addWidget(self.diam_label,0,0)
-        layout.addWidget(self.diam_spinbox,0,1)
+        # layout.addWidget(self.diam_label,0,0)
+        # layout.addWidget(self.diam_spinbox,0,1)
         layout.addWidget(self.vit_label, 1,0)
         layout.addWidget(self.vit_spinbox,1,1)
-        layout.addWidget(self.dens_label,2,0)
-        layout.addWidget(self.dens_spinbox,2,1)
+        layout.addWidget(self.nb_label,2,0)
+        layout.addWidget(self.nb_spinbox,2,1)
         layout.addWidget(self.tdiv_label,3,0)
         layout.addWidget(self.tdiv_spinbox,3,1)
 
@@ -85,14 +85,14 @@ class Vit_spinbox_class(QSpinBox) :
 
 
 
-class Dens_label_class(QLabel) : 
+class Nb_label_class(QLabel) : 
     def __init__(self) :
         super().__init__()
 
         self.setText("Nombre de départ : ")
 
 
-class Dens_spinbox_class(QSpinBox) :
+class Nb_spinbox_class(QSpinBox) :
     def __init__(self) :
         super().__init__()
 

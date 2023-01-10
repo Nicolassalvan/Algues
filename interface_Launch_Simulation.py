@@ -28,8 +28,9 @@ class Simul_class(QGroupBox) :
         self.grpbutton.addButton(self.stress_non_radiobutton)
 
         self.simul_button_gif = QPushButton("Lancer la simulation : gif", self)
-        self.simul_button_mp4 = QPushButton("Lancer la simulation : mp4", self)
         self.simul_button_gif.setStyleSheet("background-color: white")
+
+        self.simul_button_mp4 = QPushButton("Lancer la simulation : mp4", self)
         self.simul_button_mp4.setStyleSheet("background-color: white")
 
         layout.addWidget(self.choixstress_label,0,0)
@@ -38,8 +39,25 @@ class Simul_class(QGroupBox) :
         layout.addWidget(self.simul_button_gif,1,0)
         layout.addWidget(self.simul_button_mp4,2,0)
 
+        self.connect_f()
+
+
+    def connect_f(self) : 
+        # Fonction de connexion des éléments entre eux
         self.stress_oui_radiobutton.clicked.connect(self.choix_stress)
         self.stress_non_radiobutton.clicked.connect(self.choix_stress)
+        self.simul_button_gif.clicked.connect(self.launch_simul_gif)
+        self.simul_button_mp4.clicked.connect(self.launch_simul_mp4)
+
+
+    def launch_simul_gif(self) : 
+        # Fonction de lancement de la simulation
+        print("Lancement de la simulation en gif dans cette fonction")
+        
+    
+    def launch_simul_mp4(self) : 
+        # Fonction de lancement de la simulation
+        print("Lancement de la simulation en mp4 dans cette fonction")
 
 
     def choix_stress(self) : 

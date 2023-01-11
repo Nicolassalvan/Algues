@@ -98,13 +98,13 @@ class SurfBoite_label_class(QLabel) :
     def __init__(self) :
         super().__init__()
 
-            # Choix du texte
-        self.setText("Surface de la boite : " + str(d.larg_boite*d.long_boite) + " cm²")
+        self.actu()
 
     def actu(self) : 
         # Fonction permettant d'actualiser l'affichage avec les bonnes valeurs
             # Choix du texte
-        self.setText("Surface de la boite : " + str(d.larg_boite*d.long_boite) + " cm²")
+        d.surf_boite = d.larg_boite*d.long_boite
+        self.setText("Surface de la boite : " + str(d.surf_boite) + " mm²")
 
 # Fin de la classe 
 

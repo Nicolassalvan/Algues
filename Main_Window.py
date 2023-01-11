@@ -11,10 +11,7 @@ import sys
 
 # Import des bibliothèques PyQt5
 
-from PyQt5 import QtWidgets
-from PyQt5.QtCore import QSize ,Qt
-from PyQt5.QtWidgets import QWidget, QMainWindow, QGridLayout, QLabel, QApplication
-from PyQt5.QtGui import QFont, QFontDatabase
+from PyQt5.QtWidgets import QWidget, QMainWindow, QGridLayout, QApplication
 
 # Import des modules
 
@@ -87,34 +84,41 @@ class MainWindow(QMainWindow) :
     def ChangeFont(self) :  
         # Choix de la police et taille des caractères
 
-            # Création d'une police QFont
-        font = QFont('Arial', 10)
+            # Application de la police créée dans le fichier data
+        self.Intro.intro_label.setFont(d.font)
+        self.Intro.typestress_label.setFont(d.font)
+        self.Intro.ctes_groupbox.surfboite_label.setFont(d.font)
+        self.Intro.ctes_groupbox.dens_label.setFont(d.font)
+        self.Intro.ctes_groupbox.diamalg_label.setFont(d.font)
 
-            # Application de la police créée
-        self.Intro.intro_label.setFont(font)
-        self.Intro.typestress_label.setFont(font)
-        self.Intro.ctes_groupbox.surfboite_label.setFont(font)
-        self.Intro.ctes_groupbox.dens_label.setFont(font)
-        self.Intro.ctes_groupbox.diamalg_label.setFont(font)
+        self.Alg.nb_label.setFont(d.font)
+        self.Alg.tdiv_label.setFont(d.font)
+        self.Alg.vit_label.setFont(d.font)
+        self.Alg.nb_spinbox.setFont(d.font)
+        self.Alg.tdiv_spinbox.setFont(d.font)
+        self.Alg.vit_spinbox.setFont(d.font)
 
-        self.Alg.nb_label.setFont(font)
-        self.Alg.tdiv_label.setFont(font)
-        self.Alg.vit_label.setFont(font)
+        self.Stress.niv_label.setFont(d.font)
+        self.Stress.seuil_label.setFont(d.font)
+        self.Stress.trigger_label.setFont(d.font)
+        self.Stress.niv_spinbox.setFont(d.font)
+        self.Stress.seuil_spinbox.setFont(d.font)
+        self.Stress.trigger_combobox.setFont(d.font)
 
-        self.Stress.niv_label.setFont(font)
-        self.Stress.seuil_label.setFont(font)
-        self.Stress.trigger_label.setFont(font)
+        self.Simul.larg_label.setFont(d.font)
+        self.Simul.long_label.setFont(d.font)
+        self.Simul.tsim_label.setFont(d.font)
+        self.Simul.vitsim_label.setFont(d.font)
+        self.Simul.larg_spinbox.setFont(d.font)
+        self.Simul.long_spinbox.setFont(d.font)
+        self.Simul.tsim_spinbox.setFont(d.font)
+        self.Simul.vitsim_spinbox.setFont(d.font)
 
-        self.Simul.larg_label.setFont(font)
-        self.Simul.long_label.setFont(font)
-        self.Simul.tsim_label.setFont(font)
-        self.Simul.vitsim_label.setFont(font)
-
-        self.LaunchSimul.choixstress_label.setFont(font)
-        self.LaunchSimul.stress_oui_radiobutton.setFont(font)
-        self.LaunchSimul.stress_non_radiobutton.setFont(font)
-        self.LaunchSimul.simul_button_gif.setFont(font)
-        self.LaunchSimul.simul_button_mp4.setFont(font)
+        self.LaunchSimul.choixstress_label.setFont(d.font)
+        self.LaunchSimul.stress_oui_radiobutton.setFont(d.font)
+        self.LaunchSimul.stress_non_radiobutton.setFont(d.font)
+        self.LaunchSimul.simul_button_gif.setFont(d.font)
+        self.LaunchSimul.simul_button_mp4.setFont(d.font)
 
 
     def centralWidget_f(self) :             

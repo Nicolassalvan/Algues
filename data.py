@@ -1,6 +1,10 @@
 # Module contenant toutes les variables et constantes nécessaires dans différents fichiers 
 
 
+# Import des biblipthèques PyQt5 
+
+from PyQt5.QtGui import QFont, QFontDatabase
+
 # Import du fichier settings
 import settings as config
 
@@ -25,14 +29,14 @@ vit_alg_min = 0
 vit_alg_max = 100
 
     # Nombre d'algues initial
-nb_alg = 12           # en 10 alg
+nb_alg = 20             # en alg
 nb_alg_min = 1
 nb_alg_max = 100
 
     # Temps de division des algues 
 t_div_alg = 10          # en h
 t_div_alg_min = 5
-t_div_alg_max = 15
+t_div_alg_max = 50
 
 
 
@@ -66,7 +70,7 @@ trigger_t_max = 100
 # Paramètre boite de pétri et simulation
 
     # Largeur de la boite
-larg_boite = 5      # en cm
+larg_boite = 5      # en mm
 larg_boite_min = 1
 larg_boite_max = 10
 
@@ -74,6 +78,9 @@ larg_boite_max = 10
 long_boite = 5      # en cm
 long_boite_min = 1
 long_boite_max = 10
+
+    # Surface de la boite
+surf_boite = 0      # en mm²
 
     # Vitesse de simulation
 vit_simul = 10      #
@@ -85,6 +92,10 @@ t_simul = 2         # en jours
 t_simul_min = 0
 t_simul_max = 10
 
+
+# Taille et police de caractère 
+
+font = QFont('Arial', 10)
 
 
 # Messages 

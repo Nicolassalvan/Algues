@@ -71,7 +71,7 @@ class Long_spinbox_class(QSpinBox) :
         super().__init__()
 
             # Choix du Suffix, de la valeur initiale, du min et du max
-        self.setSuffix(" cm")
+        self.setSuffix(" mm")
         self.setValue(d.long_boite)
         self.setMinimum(d.long_boite_min)
         self.setMaximum(d.long_boite_max)
@@ -107,7 +107,7 @@ class Larg_spinbox_class(QSpinBox) :
         super().__init__()
 
             # Choix du suffix, de la valeur initiale, du min et du max
-        self.setSuffix(" cm")
+        self.setSuffix(" mm")
         self.setValue(d.larg_boite)
         self.setMinimum(d.larg_boite_min)
         self.setMaximum(d.larg_boite_max)

@@ -91,7 +91,7 @@ class Nb_label_class(QLabel) :
         super().__init__()
 
             # Choix du texte
-        self.setText("Nombre de départ : ")
+        self.setText("Nombre d'algues initial : ")
 
 # Fin de la classe
 
@@ -104,7 +104,7 @@ class Nb_spinbox_class(QSpinBox) :
         super().__init__()
 
             # Choix du Suffix, de la valeur initiale, du min et du max
-        self.setSuffix(" *10")
+        self.setSingleStep(10)
         self.setValue(d.nb_alg)
         self.setMinimum(d.nb_alg_min)
         self.setMaximum(d.nb_alg_max)
@@ -114,7 +114,7 @@ class Nb_spinbox_class(QSpinBox) :
 
     def changed(self) : 
         # Fonction permettant d'actualiser la valeur du fichier data avec la valeur courante
-        d.nb_alg = self.value()*10
+        d.nb_alg = self.value()
 
 # Fin de la classe
 

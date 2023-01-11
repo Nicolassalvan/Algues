@@ -78,51 +78,19 @@ class MainWindow(QMainWindow) :
         self.Simul.long_spinbox.valueChanged.connect(self.actu)
         self.Alg.nb_spinbox.valueChanged.connect(self.actu)
 
+
     def actu(self) : 
         # Fonction d'actualisation globale de la fenètre
         self.Stress.seuil_spinbox.TriggerChanged()
         self.Intro.ctes_groupbox.dens_label.actu()
         self.Intro.ctes_groupbox.surfboite_label.actu()
 
+
     def ChangeFont(self) :  
         # Choix de la police et taille des caractères
 
-            # Application de la police créée dans le fichier data
-        self.Intro.intro_label.setFont(d.font)
-        self.Intro.typestress_label.setFont(d.font)
-        self.Intro.ctes_groupbox.surfboite_label.setFont(d.font)
-        self.Intro.ctes_groupbox.dens_label.setFont(d.font)
-        self.Intro.ctes_groupbox.diamalg_label.setFont(d.font)
-        self.Intro.fin_label.setFont(d.font)
-
-        self.Alg.nb_label.setFont(d.font)
-        self.Alg.tdiv_label.setFont(d.font)
-        self.Alg.vit_label.setFont(d.font)
-        self.Alg.nb_spinbox.setFont(d.font)
-        self.Alg.tdiv_spinbox.setFont(d.font)
-        self.Alg.vit_spinbox.setFont(d.font)
-
-        self.Stress.niv_label.setFont(d.font)
-        self.Stress.seuil_label.setFont(d.font)
-        self.Stress.trigger_label.setFont(d.font)
-        self.Stress.niv_spinbox.setFont(d.font)
-        self.Stress.seuil_spinbox.setFont(d.font)
-        self.Stress.trigger_combobox.setFont(d.font)
-
-        self.Simul.larg_label.setFont(d.font)
-        self.Simul.long_label.setFont(d.font)
-        self.Simul.tsim_label.setFont(d.font)
-        self.Simul.vitsim_label.setFont(d.font)
-        self.Simul.larg_spinbox.setFont(d.font)
-        self.Simul.long_spinbox.setFont(d.font)
-        self.Simul.tsim_spinbox.setFont(d.font)
-        self.Simul.vitsim_spinbox.setFont(d.font)
-
-        self.LaunchSimul.choixstress_label.setFont(d.font)
-        self.LaunchSimul.stress_oui_radiobutton.setFont(d.font)
-        self.LaunchSimul.stress_non_radiobutton.setFont(d.font)
-        self.LaunchSimul.simul_button_gif.setFont(d.font)
-        self.LaunchSimul.simul_button_mp4.setFont(d.font)
+            # Application de la police 4.setFont(d.font)
+        self.setFont(d.font)
 
 
     def centralWidget_f(self) :             

@@ -100,10 +100,10 @@ font = QFont('Arial', 10)
 
 # Messages 
 
-message_intro = "Bienvenue, \nDans cette interface, vous avez à déterminer les différents paramètres qui seront pris en compte pour la modéilisation\n\nBien à vous."
-message_type_stress = "Ici, le stress sera abiotique (thermqiue, hydrique, oxydatif, lumineux...).\nDans ce modèle, on associe le stress à une probabilité de survie de la cellule et à une architecture en agregats des cellules"
+message_intro = "Bienvenue, \nDans cette interface, vous avez à déterminer les différents paramètres qui seront \npris en compte pour la modéilisation\n"
+message_type_stress = "Ici, le stress sera abiotique (thermqiue, hydrique, oxydatif, lumineux...).\nDans ce modèle, on associe le stress à une probabilité de survie de la cellule \net à une architecture en agregats des cellules"
 message_type_stress += "\nAfin de faciliter les choix possibles, le stress sera designé en tant que pourcentage. \nDépassé 100, les cellules sont détruites par l'environnement."
-
+message_fin = "\nBien à vous."
 
 
 def transfert_val() : 

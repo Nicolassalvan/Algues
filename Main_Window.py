@@ -39,7 +39,7 @@ class MainWindow(QMainWindow) :
 
             # Choix de la dimension et du nom
         self.setWindowTitle("Modélisation Chlamydomonas Reinhardtii")
-        self.setGeometry(0,0,1200,700)
+        # self.setGeometry(0,0,1200,700)
 
             # Ajout du layout (support)
         self.layout = QGridLayout()
@@ -64,10 +64,13 @@ class MainWindow(QMainWindow) :
             # Choix de la police et taille d'affichage (appel de fonction)
         self.ChangeFont()
 
-            # Connection des éléments de le fenêtre, actualisation des affichages et affichage de la fenêtre (appel de fonction)
+            # Connection des éléments de le fenêtre et actualisation des affichages (appel de fonction)
         self.connect()
         self.actu()
-        self.show()
+
+        # self.show()
+
+        self.showMaximized()            # Affichage de la fenêtre en plein écran
 
     def connect(self) : 
         # Fonction de connections des différents éléments de la fenètre
@@ -90,6 +93,7 @@ class MainWindow(QMainWindow) :
         self.Intro.ctes_groupbox.surfboite_label.setFont(d.font)
         self.Intro.ctes_groupbox.dens_label.setFont(d.font)
         self.Intro.ctes_groupbox.diamalg_label.setFont(d.font)
+        self.Intro.fin_label.setFont(d.font)
 
         self.Alg.nb_label.setFont(d.font)
         self.Alg.tdiv_label.setFont(d.font)

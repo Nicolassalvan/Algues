@@ -1,6 +1,5 @@
 import class_algue as cla 
 import matplotlib.pyplot as plt
-import aggregat as aggr
 import settings as config
 import random as rand
 import numpy as np
@@ -35,7 +34,7 @@ def check_deplacement(population, i, box, deplacement):
                 return False
     return True
 
-def deplacement_sans_stresse(population,box):
+def deplacement_cellule(population,box):
     """
     La fonction modifie les coordonnées des cellules de la population sans prendre en compte le stress
 
@@ -48,10 +47,13 @@ def deplacement_sans_stresse(population,box):
     """
     for i in range(population.nombre_algues):
         if (population.aggregat[i] == False):
-            deplacement = np.array([rand.randint(-config.Dep_max, config.Dep_max),rand.randint(-config.Dep_max, config.Dep_max)])
+            x = rand.randint(-config.Dep_max, config.Dep_max)
+            y = rand.randint(-config.Dep_max, config.Dep_max)
+            deplacement = np.array([x,y])
 
             if (check_deplacement(population, i, box, deplacement)):
                 population.x[i] += deplacement[0]
                 population.y[i] += deplacement[1]
-    return population
-                
+
+
+

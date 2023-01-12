@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import settings as config
 import random as rand
 import numpy as np
+import deplacement_final as dep
 
 def recherche_aggregat(aggregat,indice):
     """
@@ -21,22 +22,48 @@ def recherche_aggregat(aggregat,indice):
             if aggregat[i][j] == indice:
                 return i
 
+
+def update_aggregat2(population,aggregat):
+    """
+    
+
+    Parameters
+    ----------
+    population : La liste des cellules
+
+    aggregat : Liste des aggrégats
+
+    La fonction permet d'aggréger les différents aggrégats à côté en fonction du stress
+
+    Returns
+    -------
+    None.
+
+    """
+    if (config.STRESS >= config.SEUIL_AGREGAT):
+        i = 0
+        verif = 0
+        while (i != len(aggregat)):
+            j = 0
+            if (len(aggregat[i]) < 10*config.STRESS):
+                while (j != len(aggregat[i]) and verif == 0):
+                    k = 0
+                    while (k!=len(aggregat) and verif == 0):
+                        l = 0
+                        if (k != i):
+                            nombre_cellule = len(aggregat[k])
+                            while (l != nombre_cellule and verif == 0):
+                                if (np.abs(population.x[aggregat[i][j]] - population.x[aggregat[k][l]]) <= 1 and np.abs(population.y[aggregat[i][j]] - population.y[aggregat[k][l]]) <= 1):
+                                    aggregat[i] = aggregat[i] + aggregat[k]
+                                    aggregat.remove(aggregat[k])
+                                    nombre_cellule-=1
+                                    verif = 1
+                                l += 1
+                        k += 1
+                    j += 1
+            i += 1
+
 def update_aggregat(population,aggregat):
-    """
-    Met à jour l'état d'aggrégation d'une cellule en contact avec une autre cellule
-    Si une cellule entre en contact avec une cellule aggregé alors elle a plus de chance de s'aggréger
-
-    Cette fonction aura besoin de la fonction recherche_aggregat
-
-    Paramètre
-    =========
-    population : liste des algues
-    aggregat : liste des algues aggrégées
-
-
-    Retour : Ne retourne rien
-    """
-
     #cette boucle permet de tester s'il y a des cellules autour d'une cellule d'indice i
     for i in range(population.nombre_algues):
         if population.aggregat[i] == False:
@@ -115,7 +142,11 @@ def check_deplacement_aggregat(population, i, box, aggregat,deplacement):
             if(k != aggregat[i][j]):
                 if (np.abs(population.x[aggregat[i][j]] + deplacement[0] - population.x[k]) <= 1 and np.abs(population.y[aggregat[i][j]] + deplacement[1] - population.y[k]) <= 1):
                     if (population.aggregat[k] == False):
-                        return False
+                        if (dep.check_deplacement(population,k,box,deplacement) == False):
+                            return False
+                        else :
+                            population.x[k] += deplacement[0]
+                            population.y[k] += deplacement[1]
                     else :
                         if (k not in aggregat[i]):
                             return False

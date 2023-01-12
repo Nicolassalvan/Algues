@@ -120,11 +120,12 @@ def animation_frame(i, population, rect, aggregat,scat):
         
     # On met à jour les aggrégats??? 
     aggr.update_aggregat(population,aggregat)
+    aggr.update_aggregat2(population, aggregat)
     # On met à jour l'âge et la reproduction des cellules
         
     # On met à jour les déplacements des cellules 
 
-    move.deplacement_sans_stresse(population, rect)
+    move.deplacement_cellule(population, rect)
     aggr.deplacement_aggregat(population, rect, aggregat)
     # Update de l'animation avec un scatter
     data = np.c_[population.x, population.y]

@@ -19,4 +19,8 @@ probabilite_aggregation = 0.5
 probabilite_aggregation_normal = 0.001
 
 
+STRESS = 0.5
+SEUIL_AGREGAT = 0.4
+
+
 

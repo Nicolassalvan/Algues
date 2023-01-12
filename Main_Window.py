@@ -78,6 +78,10 @@ class MainWindow(QMainWindow) :
         self.Simul.long_spinbox.valueChanged.connect(self.actu)
         self.Alg.nb_spinbox.valueChanged.connect(self.actu)
 
+            # Une fois la simulation lancée, on ferme la fenetre pour limiter les calculs
+        self.LaunchSimul.simul_button_gif.clicked.connect(self.close)
+        self.LaunchSimul.simul_button_mp4.clicked.connect(self.close)
+
 
     def actu(self) : 
         # Fonction d'actualisation globale de la fenètre

@@ -8,6 +8,8 @@ from PyQt5.QtWidgets import QButtonGroup, QGroupBox, QGridLayout, QPushButton, Q
 # Import du module data
 
 import data as d
+from class_algue import * 
+from video_et_anim import *
 
 
 
@@ -69,11 +71,22 @@ class Simul_class(QGroupBox) :
     def launch_simul_gif(self) : 
         # Fonction de lancement de la simulation en gif
         print("Lancement de la simulation en gif dans cette fonction")
-        
+        self.box = self.create_box()
+        self.pop = self.create_pop(self.box)
+
+        gif_simulation(self.pop, self.box)
+
+        print("Done")
     
     def launch_simul_mp4(self) : 
         # Fonction de lancement de la simulation en mp4
         print("Lancement de la simulation en mp4 dans cette fonction")
+        self.box = self.create_box()
+        self.pop = self.create_pop(self.box)
+
+        video_simulation(self.pop, self.box)
+
+        print("Done")
 
 
     def choix_stress(self) : 
@@ -84,6 +97,16 @@ class Simul_class(QGroupBox) :
         else : 
             d.bool_stress = False
 
+    def create_box(self) : 
+        # Fonction permettant de créer un élément de classe Box
+        # box = Box(d.long_boite, d.larg_boite)
+        box = Box(1000,1000)
+        return box
+
+    def create_pop(self, box : Box) : 
+        # fonction permettant de créer une population d'algue 
+        pop = Population(d.nb_alg, box)
+        return pop
 # Fin de la classe
 
 

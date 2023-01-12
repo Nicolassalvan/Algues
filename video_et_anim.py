@@ -136,8 +136,8 @@ def animation_frame(i, population, rect, scat):
     scat.set_offsets(data)
     scat.set_sizes(population.taille)
 
-# === Test === #
+# # === Test === #
 
-boite = algue.Box(1000, 1000)
-pop = algue.Population(10, boite)
-video_simulation(pop, boite)
+# boite = algue.Box(1000, 1000)
+# pop = algue.Population(10, boite)
+# video_simulation(pop, boite)

@@ -8,8 +8,6 @@ from PyQt5.QtWidgets import QButtonGroup, QGroupBox, QGridLayout, QPushButton, Q
 # Import du module data
 
 import data as d
-from class_algue import * 
-from video_et_anim import *
 
 
 
@@ -64,29 +62,7 @@ class Simul_class(QGroupBox) :
         # Fonction de connexion des éléments entre eux
         self.stress_oui_radiobutton.clicked.connect(self.choix_stress)      # Par exemple : le boutton de choix de stress oui est connecté à la fonction de la classe choix_stress
         self.stress_non_radiobutton.clicked.connect(self.choix_stress)
-        self.simul_button_gif.clicked.connect(self.launch_simul_gif)
-        self.simul_button_mp4.clicked.connect(self.launch_simul_mp4)
 
-
-    def launch_simul_gif(self) : 
-        # Fonction de lancement de la simulation en gif
-        print("Lancement de la simulation en gif dans cette fonction")
-        self.box = self.create_box()
-        self.pop = self.create_pop(self.box)
-
-        gif_simulation(self.pop, self.box)
-
-        print("Done")
-    
-    def launch_simul_mp4(self) : 
-        # Fonction de lancement de la simulation en mp4
-        print("Lancement de la simulation en mp4 dans cette fonction")
-        self.box = self.create_box()
-        self.pop = self.create_pop(self.box)
-
-        video_simulation(self.pop, self.box)
-
-        print("Done")
 
 
     def choix_stress(self) : 
@@ -97,16 +73,7 @@ class Simul_class(QGroupBox) :
         else : 
             d.bool_stress = False
 
-    def create_box(self) : 
-        # Fonction permettant de créer un élément de classe Box
-        # box = Box(d.long_boite, d.larg_boite)
-        box = Box(1000,1000)
-        return box
-
-    def create_pop(self, box : Box) : 
-        # fonction permettant de créer une population d'algue 
-        pop = Population(d.nb_alg, box)
-        return pop
+    
 # Fin de la classe
 
 

@@ -16,10 +16,10 @@ def check_deplacement(population, i, box, deplacement):
     Paramètre 
     =============
 
-    population : liste de cellules
+    population : tableau numpy de cellules
     i : indice de la cellule
-    box : environnement où se déplace les cellules
-    deplacement : déplacement possible (x,y)
+    box : tableau numpy de l'environnement où se déplace les cellules
+    deplacement : tableau numpy du déplacement possible (x,y)
     """
     # je vérifie que je ne sorte pas de la box
     if (population.x[i] + deplacement[0] > box.x_max or population.x[i] + deplacement[0] < 0):
@@ -42,11 +42,11 @@ def deplacement_cellule(population,box):
 
     Paramètre
     =============
-    population : liste de cellules
-    box : environnement où se déplace les cellules
+    population : tableau numpy de cellules
+    box : tableau numpy de l'environnement où se déplace les cellules
     """
     for i in range(population.nombre_algues):
-        if (population.aggregat[i] == False):
+        if (population.agregat[i] == False):
             x = rand.randint(-config.Dep_max, config.Dep_max)
             y = rand.randint(-config.Dep_max, config.Dep_max)
             deplacement = np.array([x,y])

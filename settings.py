@@ -15,12 +15,13 @@ taille = 1
 
 # === Aggregation ===
 
-probabilite_aggregation = 0.5
-probabilite_aggregation_normal = 0.001
-
-
+PROBA_AGREGAT = 0.5
+PROBA_AGREGAT_NORMAL = 0.001
 STRESS = 0.5
 SEUIL_AGREGAT = 0.4
+
+#Ce coefficient multiplié par STRESS, correspond à la taille minimale d'un agrégat pour quelle puisse se coller avec une autre
+COEF = 10
 
 
 

@@ -29,7 +29,7 @@ class Population:
         # Stade de croissance / Taille
         self.taille = np.array([])
         # Etat: True si aggregee, False si non aggrégée
-        self.aggregat = np.array([])
+        self.agregat = np.array([])
         
         # Generation de chaque algue, en vérifiant qu'aucune ne soit à la même coordonnée
         for i in range(nombre_algues):
@@ -50,7 +50,7 @@ class Population:
             self.y = np.append(self.y, y1)
             self.age = np.append(self.age, rd.randint(0, config.TEMPS_REPROD))
             self.taille = np.append(self.taille, config.taille)
-            self.aggregat = np.append(self.aggregat, False)
+            self.agregat = np.append(self.agregat, False)
             
     def afficher_coord_algues(self):
         """
@@ -74,7 +74,7 @@ class Population:
         self.x = np.delete(self.x, tab, 0)
         self.y = np.delete(self.y, tab, 0)
         self.age = np.delete(self.age, tab, 0)
-        self.aggregat = np.delete(self.aggregat, tab, 0)
+        self.agregat = np.delete(self.agregat, tab, 0)
         self.taille = np.delete(self.taille, tab, 0)
         self.nombre_algues = np.size(self.x)
     

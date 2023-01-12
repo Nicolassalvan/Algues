@@ -13,7 +13,7 @@ import settings
 import class_algue as algue
 
 import deplacement_final as move
-import aggregat as aggr
+import agregat as aggr
 
 # ===== CREATION D'UN FICHIER .mp4 ===== #
 
@@ -57,7 +57,7 @@ def video_simulation(population, rectangle):
 
 # ===== CREATION D'UN GIF ===== #    
 
-def gif_simulation(population, rectangle,aggregat):
+def gif_simulation(population, rectangle,agregat):
     """
     Lance la simulation de la population dans la zone délimitée par un rectangle. 
     Créé un fichier .gif à partir du déroulement de la simulation.
@@ -86,7 +86,7 @@ def gif_simulation(population, rectangle,aggregat):
     # initialisation de l'animation
     animation = FuncAnimation(
         fig, func=animation_frame, frames=np.arange(0, 500, 1),
-        fargs=(population, rectangle,aggregat,scat,), interval=50)
+        fargs=(population, rectangle,agregat,scat,), interval=50)
 
     # Initialisations du writer
     writer = PillowWriter(fps=15, metadata={'artist': 'me'}, bitrate=1800)
@@ -96,7 +96,7 @@ def gif_simulation(population, rectangle,aggregat):
 
 # ===== FONCTION QUI MET A JOUR LA POPULATION ===== #
 
-def animation_frame(i, population, rect, aggregat,scat):
+def animation_frame(i, population, rect, agregat,scat):
     """
     Update chaque frame de l'animation en mettant à jour les morts, les reproductions, 
     l'aggrégation, les déplacements et l'âge des algues de la population. 
@@ -119,21 +119,21 @@ def animation_frame(i, population, rect, aggregat,scat):
     #update_death(population, rect, ... )
         
     # On met à jour les aggrégats??? 
-    aggr.update_aggregat(population,aggregat)
-    aggr.update_aggregat2(population, aggregat)
+    aggr.update_agregat(population,agregat)
+    aggr.update_agregat2(population, agregat)
     # On met à jour l'âge et la reproduction des cellules
         
     # On met à jour les déplacements des cellules 
 
     move.deplacement_cellule(population, rect)
-    aggr.deplacement_aggregat(population, rect, aggregat)
+    aggr.deplacement_agregat(population, rect, agregat)
     # Update de l'animation avec un scatter
     data = np.c_[population.x, population.y]
     scat.set_offsets(data)
     scat.set_sizes(population.taille)
 
 # === Test === #
-aggregat=[]
+agregat=[]
 boite = algue.Box(100, 100)
 pop = algue.Population(1000, boite)
-gif_simulation(pop, boite,aggregat)
+gif_simulation(pop, boite,agregat)

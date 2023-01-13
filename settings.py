@@ -31,3 +31,5 @@ TAILLE_8 = 4
 # === Nombre maximal de cellules === #
 NB_ALGUES_MAX = 7000
 
+# === Stress Constant === #
+STRESS =0.5

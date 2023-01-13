@@ -49,9 +49,11 @@ def video_simulation(population, rectangle):
     scat = ax.scatter([], [], s=5)
     # Array de récupération du nombre d'algues à chaque frame
     tabNbAlgues=np.array([])
+    # Enesemble de frames
+    _frames=np.arange(0, settings.NB_FRAMES, 1)
     # initialisation de l'animation
     animation = FuncAnimation(
-        fig, func=animation_frame, frames=np.arange(0, 1000, 1),
+        fig, func=animation_frame, frames=_frames,
         fargs=(population, rectangle,scat,tabNbAlgues), interval=50)
 
     # Initialisations du writer
@@ -59,6 +61,15 @@ def video_simulation(population, rectangle):
     writer = writer(fps=15, metadata={'artist': 'me'}, bitrate=1800)
 
     animation.save('Les_Belles_Algues.mp4', writer)
+
+     #Graph Stats
+    print(settings.tabNbAlgues)
+    figure=plt.figure(figsize=(100,100))
+    plt.plot(_frames,settings.tabNbAlgues[:-1],label="nb_algues/frame")
+    plt.xlabel("frames")
+    plt.legend()
+    plt.show()
+    #plt.savefig("Stats.png")
 
    
 
@@ -91,21 +102,31 @@ def gif_simulation(population, rectangle):
 
     scat = ax.scatter([], [], s=5)
     # Array de récupération du nombre d'algues à chaque frame
-    tabNbAlgues=np.array([])
+    # Enesemble de frames
+    _frames=np.arange(0, settings.NB_FRAMES, 1)
     # initialisation de l'animation
     animation = FuncAnimation(
-        fig, func=animation_frame, frames=np.arange(0, 1000, 1),
-        fargs=(population, rectangle,scat,tabNbAlgues), interval=50)
+        fig, func=animation_frame, frames=_frames,
+        fargs=(population, rectangle,scat,), interval=50)
 
     # Initialisations du writer
     writer = PillowWriter(fps=15, metadata={'artist': 'me'}, bitrate=1800)
 
     animation.save('Les_Belles_Algues.gif', writer)
 
+    #Graph Stats
+    print(settings.tabNbAlgues)
+    figure=plt.figure(figsize=(100,100))
+    plt.plot(_frames,settings.tabNbAlgues[:-1],label="nb_algues/frame")
+    plt.xlabel("frames")
+    plt.legend()
+    plt.show()
+    #plt.savefig("Stats.png")
+
 
 # ===== FONCTION QUI MET A JOUR LA POPULATION ===== #
 
-def animation_frame(i, population, rect, scat,tabNbAlgues):
+def animation_frame(i, population, rect, scat):
     """
     Update chaque frame de l'animation en mettant à jour les morts, les reproductions, 
     l'aggrégation, les déplacements et l'âge des algues de la population. 
@@ -137,7 +158,7 @@ def animation_frame(i, population, rect, scat,tabNbAlgues):
     # On met à jour les déplacements des cellules 
     move.deplacement_sans_stresse(population, rect)
     # Update le array du nombre d'algues par frame
-    tabNbAlgues=np.append(tabNbAlgues,population.nombre_algues)
+    settings.tabNbAlgues=np.append(settings.tabNbAlgues,population.nombre_algues)
     # Update de l'animation avec un scatter
     data = np.c_[population.x, population.y]
     scat.set_offsets(data)
@@ -146,5 +167,5 @@ def animation_frame(i, population, rect, scat,tabNbAlgues):
 # # === Test === #
 
 boite = algue.Box(1000, 1000)
-pop = algue.Population(10, boite)
+pop = algue.Population(100, boite)
 gif_simulation(pop, boite)

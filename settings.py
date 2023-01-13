@@ -3,10 +3,11 @@ Created on Thu Dec 22 13:46:49 2022
 
 @author: Team Algues
 """
+import numpy as np
 # === Definition des variables globales utilisées dans le code === #
 
 # === Temps de reproduction en frame === #
-TEMPS_REPRODUCTION = 20
+TEMPS_REPRODUCTION = 10
 
 # === Deplacement maximal d'une cellule entre deux frames === # 
 DEP_MAX = 10
@@ -32,4 +33,10 @@ TAILLE_8 = 4
 NB_ALGUES_MAX = 7000
 
 # === Stress Constant === #
-STRESS =0.5
+STRESS =0.025
+
+# === Animation === #
+NB_FRAMES=200
+
+# === Array de récupération graph stat === #
+tabNbAlgues=np.array([])

@@ -1,7 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-@author: Projet Multidisciplinaire Agregation algues - MAIN3 promo 2025
-"""
 
 ---- * Analyse successive d'images d'algues uncelullaires Chlamydomonas Reinhardtii * ----
 

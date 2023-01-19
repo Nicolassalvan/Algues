@@ -1,6 +1,17 @@
 
 ---- * Analyse successive d'images d'algues unicelullaires Chlamydomonas Reinhardtii * ----
 
+
+---- * Bibliothèques nécessaires pour faire fonctionner le code correctement * ----
+cv2
+numpy 
+math
+os
+matplotlib.pyplot
+
+---- * * ----
+
+
 Voici les parties de code les plus utiles (et fonctionnelles) pour l'analyse d'un grand nombre d'images tirées 
 de la vidéo présente ici https://dropsu.sorbonne-universite.fr/s/8TbeAXKwMAPMs9w/download (voir FOV_2_20fps)
 Le grand nombre d'autres données présentes ont étés utiles pour affiner les algorithmes de détection. 

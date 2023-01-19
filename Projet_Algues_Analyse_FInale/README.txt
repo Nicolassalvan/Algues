@@ -1,5 +1,5 @@
 
----- * Analyse successive d'images d'algues uncelullaires Chlamydomonas Reinhardtii * ----
+---- * Analyse successive d'images d'algues unicelullaires Chlamydomonas Reinhardtii * ----
 
 Voici les parties de code les plus utiles (et fonctionnelles) pour l'analyse d'un grand nombre d'images tirées 
 de la vidéo présente ici https://dropsu.sorbonne-universite.fr/s/8TbeAXKwMAPMs9w/download (voir FOV_2_20fps)

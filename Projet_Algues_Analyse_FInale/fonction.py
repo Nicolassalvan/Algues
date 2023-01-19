@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+"""
+@author: Projet Multidisciplinaire Agregation algues - MAIN3 promo 2025
+"""
+
 import numpy as np
 import cv2
 import os

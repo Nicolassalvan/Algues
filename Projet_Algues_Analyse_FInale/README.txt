@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+"""
+@author: Projet Multidisciplinaire Agregation algues - MAIN3 promo 2025
+"""
+
 ---- * Analyse successive d'images d'algues uncelullaires Chlamydomonas Reinhardtii * ----
 
 Voici les parties de code les plus utiles (et fonctionnelles) pour l'analyse d'un grand nombre d'images tirées 

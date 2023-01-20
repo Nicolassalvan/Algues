@@ -19,6 +19,9 @@ Les nombreux codes provisoires et "essais" ne figurent pas dans ce projet.
 
 ---- * Pour utiliser le code * ----
 
+--- * Etape 0 * ---
+Si dossier "image_frame_video" et "video" non vide, supprimer tout les fichiers dedans
+
 --- * Etape 1 * ---
 Télecharger la video FOV_2_20fps (lien plus haut)
 
@@ -26,7 +29,7 @@ Télecharger la video FOV_2_20fps (lien plus haut)
 Glisser la vidéo dans le dossier "video" du projet 
 
 --- * Etape 3 * ---
-Utiliser le code "extraction_video" pour extraire chaque frame de la vidéo FOV_2_20fps dans le dossier "image_frame_video"
+Utiliser le code "extraction_video" pour extraire chaque frame de la vidéo FOV_2_20fps dans le dossier "image_frame_video".
 
 --- * Etape 4 * ---
 Utiliser le code "analyse_images" pour lancer l'analyse, ceci peut prendre un quelques minutes en fonction de la machine
